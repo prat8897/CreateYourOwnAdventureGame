@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/adventure-story-app/static/css/main.45ffc75b.css",
-    "main.js": "/adventure-story-app/static/js/main.01d8fff6.js",
-    "static/js/453.768f5017.chunk.js": "/adventure-story-app/static/js/453.768f5017.chunk.js",
-    "index.html": "/adventure-story-app/index.html",
-    "main.45ffc75b.css.map": "/adventure-story-app/static/css/main.45ffc75b.css.map",
-    "main.01d8fff6.js.map": "/adventure-story-app/static/js/main.01d8fff6.js.map",
-    "453.768f5017.chunk.js.map": "/adventure-story-app/static/js/453.768f5017.chunk.js.map"
+    "main.css": "/CreateYourOwnAdventureGame/static/css/main.45ffc75b.css",
+    "main.js": "/CreateYourOwnAdventureGame/static/js/main.b3ae6feb.js",
+    "static/js/453.768f5017.chunk.js": "/CreateYourOwnAdventureGame/static/js/453.768f5017.chunk.js",
+    "index.html": "/CreateYourOwnAdventureGame/index.html",
+    "main.45ffc75b.css.map": "/CreateYourOwnAdventureGame/static/css/main.45ffc75b.css.map",
+    "main.b3ae6feb.js.map": "/CreateYourOwnAdventureGame/static/js/main.b3ae6feb.js.map",
+    "453.768f5017.chunk.js.map": "/CreateYourOwnAdventureGame/static/js/453.768f5017.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.45ffc75b.css",
-    "static/js/main.01d8fff6.js"
+    "static/js/main.b3ae6feb.js"
   ]
 }
