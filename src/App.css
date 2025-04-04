@@ -1,38 +1,118 @@
-.App {
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.api-form {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input-field {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.button {
+  padding: 0.5rem 1rem;
+  background-color: #2563eb;
   color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.button:hover {
+  background-color: #1d4ed8;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.story-segment {
+  margin-bottom: 2rem;
+}
+
+.ascii-art {
+  background-color: #1f2937;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  color: #34d399;
+  font-family: monospace;
+  white-space: pre;
+  font-size: 0.875rem;
+}
+
+.story-text {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.choices-container {
+  margin-top: 1.5rem;
+}
+
+.choice-button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.choice-button:hover {
+  background-color: #1d4ed8;
+}
+
+.loader {
+  border: 0.25rem solid #f3f4f6;
+  border-top: 0.25rem solid #3b82f6;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 1s linear infinite;
+  margin: 1rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.small-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 2rem;
+}
+
+.link {
+  color: #3b82f6;
+  text-decoration: underline;
+  cursor: pointer;
 }

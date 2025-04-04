@@ -109,102 +109,100 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="flex flex-col items-center p-4 max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Choose Your Own Adventure</h1>
-        
-        {!apiKey ? (
-          <div className="w-full max-w-md p-4 bg-gray-100 rounded-lg">
-            <h2 className="text-xl font-semibold mb-4">Enter OpenAI API Key</h2>
-            <p className="mb-4 text-sm">Your API key is stored only in your browser's local storage and is never sent to any server except OpenAI.</p>
-            <input
-              type="password"
-              value={apiKey}
-              onChange={(e) => setApiKey(e.target.value)}
-              placeholder="sk-..."
-              className="w-full p-2 border rounded mb-4"
-            />
-            <button
-              onClick={saveApiKey}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-            >
-              Save API Key & Start Adventure
-            </button>
-          </div>
-        ) : (
-          <>
-            {storySegments.length > 0 && (
-              <div className="w-full space-y-8">
-                {storySegments.map((segment, index) => (
-                  <div key={index} className="mb-8">
-                    <div className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                      <pre className="text-green-400 font-mono text-sm whitespace-pre">
-                        {segment.art}
-                      </pre>
-                    </div>
-                    <p className="text-lg">{segment.text}</p>
+    <div className="container">
+      <h1 className="title">Choose Your Own Adventure</h1>
+      
+      {!apiKey ? (
+        <div className="api-form">
+          <h2 className="title">Enter OpenAI API Key</h2>
+          <p>Your API key is stored only in your browser's local storage and is never sent to any server except OpenAI.</p>
+          <input
+            type="password"
+            value={apiKey}
+            onChange={(e) => setApiKey(e.target.value)}
+            placeholder="sk-..."
+            className="input-field"
+          />
+          <button
+            onClick={saveApiKey}
+            className="button"
+          >
+            Save API Key & Start Adventure
+          </button>
+        </div>
+      ) : (
+        <>
+          {storySegments.length > 0 && (
+            <div>
+              {storySegments.map((segment, index) => (
+                <div key={index} className="story-segment">
+                  <div className="ascii-art">
+                    <pre>
+                      {segment.art}
+                    </pre>
                   </div>
-                ))}
-              </div>
-            )}
-            
-            {loading ? (
-              <div className="w-full text-center p-4">
-                <p className="text-lg">Loading next part of your adventure...</p>
-                <div className="loader mt-4 mx-auto w-12 h-12 border-4 border-t-blue-500 border-blue-200 rounded-full animate-spin"></div>
-              </div>
-            ) : error ? (
-              <div className="w-full p-4 bg-red-100 text-red-700 rounded-lg">
-                <p>{error}</p>
-                <button 
-                  onClick={() => handleChoice(0)} 
-                  className="mt-2 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+                  <p className="story-text">{segment.text}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          
+          {loading ? (
+            <div>
+              <p>Loading next part of your adventure...</p>
+              <div className="loader"></div>
+            </div>
+          ) : error ? (
+            <div className="error-message">
+              <p>{error}</p>
+              <button 
+                onClick={() => handleChoice(0)} 
+                className="button"
+              >
+                Try Again
+              </button>
+            </div>
+          ) : (
+            choices.length > 0 && (
+              <div className="choices-container">
+                <h2 className="title">What will you do?</h2>
+                <div>
+                  {choices.map((choice, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleChoice(index)}
+                      className="choice-button"
+                    >
+                      {choice}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  onClick={startNewStory}
+                  className="button"
                 >
-                  Try Again
+                  Start New Adventure
                 </button>
               </div>
-            ) : (
-              choices.length > 0 && (
-                <div className="w-full mt-6">
-                  <h2 className="text-xl font-semibold mb-4">What will you do?</h2>
-                  <div className="space-y-2">
-                    {choices.map((choice, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleChoice(index)}
-                        className="w-full p-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-left"
-                      >
-                        {choice}
-                      </button>
-                    ))}
-                  </div>
-                  <button
-                    onClick={startNewStory}
-                    className="mt-4 px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
-                  >
-                    Start New Adventure
-                  </button>
-                </div>
-              )
-            )}
-            
-            <div className="mt-8 text-sm text-gray-500">
-              <p>API Key stored locally. <button 
-                onClick={() => {
-                  localStorage.removeItem('openai_api_key');
-                  setApiKey('');
-                  setStorySegments([]);
-                  setChoices([]);
-                  setInitialized(false);
-                }}
-                className="text-blue-500 underline"
-              >
-                Remove API Key
-              </button></p>
-            </div>
-          </>
-        )}
-      </div>
+            )
+          )}
+          
+          <div className="small-text">
+            <p>API Key stored locally. <button 
+              onClick={() => {
+                localStorage.removeItem('openai_api_key');
+                setApiKey('');
+                setStorySegments([]);
+                setChoices([]);
+                setInitialized(false);
+              }}
+              className="link"
+            >
+              Remove API Key
+            </button></p>
+          </div>
+        </>
+      )}
     </div>
   );
 }
